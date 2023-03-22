@@ -17,11 +17,15 @@
     "babel-loader": "^8.3.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.21.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.2"
   },
   "scripts": {
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 8080",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && build-storybook"
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
+    "build:babel:esm": "babel ./src -d ./dist/storybook/esm --env-name esm --extensions \".js,.jsx,.ts,.tsx\"",
+    "build:babel:tsc": "tsc --declaration --emitDeclarationOnly --project ./src --outDir ./dist/storybook/ts"
   }
 }
