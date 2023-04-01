@@ -1,29 +1,18 @@
-
 {
     "compilerOptions": {
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": ".",
-      "emitDecoratorMetadata": true,
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "incremental": false,
-      "isolatedModules": true,
-      "jsx": "react",
-      "lib": [
-        "es2017",
-        "dom"
-      ],
-      "module": "commonjs",
-      "rootDir": "./",
-      "skipLibCheck": true,
-      "target": "es5"
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "target": "es6",
+        "strictBindCallApply": true,
+        "strictFunctionTypes": false,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
+        "moduleResolution": "node",
+        "noEmit": true
     },
-    "include": [
-      "./**/*"
-    ],
-    "exclude": [
-      "node_modules",
-      "./components/**/*"
-    ]
-  }
-  
+    "exclude": ["./src"],
+    "references": [{ "path": "./components/button" }, { "path": "./components/chip" }]
+}

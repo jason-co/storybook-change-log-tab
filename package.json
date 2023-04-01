@@ -1,31 +1,47 @@
 {
-  "name": "storybook-change-log-tab",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/jason-co/storybook-change-log-tab.git",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.21.3",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-interactions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/builder-webpack4": "^6.5.16",
-    "@storybook/manager-webpack4": "^6.5.16",
-    "@storybook/react": "^6.5.16",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-loader": "^8.3.0"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.21.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.0.2"
-  },
-  "scripts": {
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 8080",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
-    "build:babel:esm": "babel ./src -d ./dist/storybook/esm --env-name esm --extensions \".js,.jsx,.ts,.tsx\"",
-    "build:babel:tsc": "tsc --declaration --emitDeclarationOnly --project ./src --outDir ./dist/storybook/ts"
-  }
+    "name": "storybook-change-log-tab",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/jason-co/storybook-change-log-tab.git",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.21.3",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addon-interactions": "^6.5.16",
+        "@storybook/addon-links": "^6.5.16",
+        "@storybook/builder-webpack4": "^6.5.16",
+        "@storybook/manager-webpack4": "^6.5.16",
+        "@storybook/react": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "@typescript-eslint/eslint-plugin": "^5.57.0",
+        "@typescript-eslint/parser": "^5.57.0",
+        "babel-loader": "^8.3.0",
+        "eslint": "^8.37.0",
+        "eslint-plugin-react": "^7.32.2"
+    },
+    "dependencies": {
+        "@babel/cli": "^7.21.0",
+        "@emotion/react": "^11.10.6",
+        "@emotion/styled": "^11.10.6",
+        "@mdx-js/loader": "^2.3.0",
+        "@mui/material": "^5.11.14",
+        "@mui/styled-engine-sc": "^5.11.11",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "styled-components": "^5.3.9",
+        "typescript": "^5.0.2"
+    },
+    "resolutions": {
+        "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
+    },
+    "scripts": {
+        "start": "set NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 8080",
+        "build": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build:babel && yarn build:components",
+        "build:babel": "rm -rf dist && yarn build:babel:esm && yarn build:babel:tsc",
+        "build:babel:esm": "babel ./src/babel -d ./dist/storybook/esm --env-name esm --extensions \".js,.jsx,.ts,.tsx\"",
+        "build:babel:tsc": "tsc --project ./src/babel",
+        "build:components": "rm -rf ./components/**/build && tsc -b",
+        "clean": "yarn cache clean && git clean -Xdf"
+    }
 }
