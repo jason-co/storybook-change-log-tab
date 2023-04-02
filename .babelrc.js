@@ -1,6 +1,5 @@
 module.exports = {
-    presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'
-    ],
+    presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
     env: {
         esm: {
             presets: [
@@ -12,7 +11,5 @@ module.exports = {
                 ]
             ]
         }
-    },
-    ignore: ['**/preset.js', '. /**/*.stories.*'
-    ]
+    }
 };

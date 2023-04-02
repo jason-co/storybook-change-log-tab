@@ -37,11 +37,12 @@
     },
     "scripts": {
         "start": "set NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 8080",
-        "build": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build:babel && yarn build:components",
+        "build": "yarn build:babel && yarn build:components",
         "build:babel": "rm -rf dist && yarn build:babel:esm && yarn build:babel:tsc",
-        "build:babel:esm": "babel ./src/babel -d ./dist/storybook/esm --env-name esm --extensions \".js,.jsx,.ts,.tsx\"",
-        "build:babel:tsc": "tsc --project ./src/babel",
+        "build:babel:esm": "babel ./src/storybook -d ./dist/storybook/esm --env-name esm --extensions \".tsx\"",
+        "build:babel:tsc": "tsc --project ./src/storybook",
         "build:components": "rm -rf ./components/**/build && tsc -b",
+        "build:storybook": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build-storybook",
         "clean": "yarn cache clean && git clean -Xdf"
     }
 }

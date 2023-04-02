@@ -8,7 +8,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",  
-    "../src/babel/preset.js"
+    "../src/storybook/preset.js"
   ],
   "framework": "@storybook/react"
 }

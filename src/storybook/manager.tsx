@@ -1,5 +1,7 @@
-import React from 'react';
 import { addons, types } from '@storybook/addons';
+import React from 'react';
+import ChangeLogReader from './ChangeLogReader';
+
 addons.register('change-log', () => {
     addons.add('change-log', {
         type: types.TAB,
@@ -8,6 +10,6 @@ addons.register('change-log', () => {
             return `/change-log/${storyId}`;
         },
         match: ({ viewMode }) => viewMode === 'change-log',
-        render: () => <div>Our new tab contents!</div>
+        render: () => <ChangeLogReader />
     });
 });
