@@ -1,11 +1,14 @@
 {
-    "extends": "../../tsconfig.json",
+    "extends": "../../../tsconfig.json",
     "compilerOptions": {
         "rootDir": "./",
         "noEmit": false,
         "declaration": true,
         "emitDeclarationOnly": true,
-        "outDir": "../../dist/storybook/ts"
+        "isolatedModules": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "../../../dist/storybook/ts"
     },
     "include": ["./*"],
     "exclude": []

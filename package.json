@@ -24,9 +24,11 @@
         "@babel/cli": "^7.21.0",
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
-        "@mdx-js/loader": "^2.3.0",
+        "@mdx-js/loader": "1.6.22",
+        "@mdx-js/react": "1.6.22",
         "@mui/material": "^5.11.14",
         "@mui/styled-engine-sc": "^5.11.11",
+        "raw-loader": "^4.0.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "styled-components": "^5.3.9",
@@ -39,8 +41,8 @@
         "start": "set NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 8080",
         "build": "yarn build:components && yarn build:storybook:babel && yarn build:storybook:tsc",
         "build:components": "rm -rf ./components/**/build && tsc -b",
-        "build:storybook:babel": "rm -rf dist/storybook/esm && babel ./src/storybook -d ./dist/storybook/esm --env-name esm --extensions \".tsx\"",
-        "build:storybook:tsc": "rm -rf dist/storybook/tsc && tsc --project ./src/storybook",
+        "build:storybook:babel": "rm -rf dist/storybook/esm && babel ./.storybook/components/change-log -d ./dist/storybook/esm --env-name esm --extensions \".tsx\"",
+        "build:storybook:tsc": "rm -rf dist/storybook/tsc && tsc --project ./.storybook/components/change-log",
         "build:storybook:static": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build-storybook",
         "clean": "yarn cache clean && git clean -Xdf"
     }

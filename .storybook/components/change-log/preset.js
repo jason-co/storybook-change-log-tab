@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 function managerEntries(entry = []) {
-    return [...entry, require.resolve('../../dist/storybook/esm/manager')];
+    return [...entry, require.resolve('../../../dist/storybook/esm/manager')];
 }
 module.exports = {
     managerEntries
