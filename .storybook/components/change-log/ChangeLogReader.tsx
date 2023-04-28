@@ -13,8 +13,8 @@ export const ChangeLogReader: FC<ChangeLogReaderProps> = ({ componentName }: Cha
             return;
         }
         try {
-            const changeLogModule = require(`!!raw-loader!../../../components/${componentName}/${componentName}.change-log.mdx`);
-            setChangeLog(changeLogModule?.default);
+            const changeLogModule = require(`!!babel-loader!@mdx-js/loader!../../../components/${componentName}/${componentName}.change-log.mdx`);
+            setChangeLog(changeLogModule?.default({}));
         } catch (err) {
             setChangeLog(undefined);
         }
@@ -23,13 +23,12 @@ export const ChangeLogReader: FC<ChangeLogReaderProps> = ({ componentName }: Cha
     return (
         <div
             style={{
-                display: 'flex',
                 padding: '12px 20px',
                 backgroundColor: 'white',
                 height: '100%'
             }}
         >
-            <div style={{ width: '100%', maxWidth: '1000px', whiteSpace: 'pre-line' }}>{changeLog}</div>
+            <div style={{ width: '100%', maxWidth: '1000px' }}>{changeLog}</div>
         </div>
     );
 };
