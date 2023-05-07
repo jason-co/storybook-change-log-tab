@@ -11,5 +11,6 @@
         "outDir": "../../../dist/storybook/ts"
     },
     "include": ["./*"],
-    "exclude": []
+    "exclude": [],
+    "references": [{ "path": "../../../components/version-info" }]
 }

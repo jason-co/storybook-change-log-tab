@@ -14,5 +14,9 @@
         "noEmit": true
     },
     "exclude": ["./src"],
-    "references": [{ "path": "./components/button" }, { "path": "./components/chip" }]
+    "references": [
+        { "path": "./components/button" },
+        { "path": "./components/chip" },
+        { "path": "./components/version-info" }
+    ]
 }
