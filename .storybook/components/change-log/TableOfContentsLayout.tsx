@@ -9,6 +9,7 @@ const StyledTableOfContentsLayout = styled.div`
     .table-of-contents-container {
         position: sticky;
         top: 2rem;
+        align-self: start;
         li {
             margin: 0.5rem 0;
         }

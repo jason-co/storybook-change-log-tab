@@ -33,7 +33,7 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
                 <a id={version} />
                 <h2>{releaseDate}</h2>
                 <Divider />
-                {features && (
+                {features.length > 0 && (
                     <>
                         <h3>
                             <Badge>
@@ -48,13 +48,13 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
                         </ul>
                     </>
                 )}
-                {bugs && (
+                {bugs.length > 0 && (
                     <>
                         <h3>
                             <Badge>
                                 <DescriptionIcon />
                             </Badge>
-                            Features
+                            Bugs
                         </h3>
                         <ul>
                             {bugs.map((bug, index) => (
