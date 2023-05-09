@@ -1,3 +1,4 @@
+import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { Badge, Chip, Divider } from '@mui/material';
 import React, { FC, HtmlHTMLAttributes, ReactElement } from 'react';
@@ -11,6 +12,10 @@ const StyledVersionInfo = styled.div`
     .MuiChip-root {
         margin-top: 0.5rem;
     }
+    .MuiBadge-root {
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
 `;
 export interface VersionInfoProps extends HtmlHTMLAttributes<HTMLDivElement> {
     version: string;
@@ -18,12 +23,15 @@ export interface VersionInfoProps extends HtmlHTMLAttributes<HTMLDivElement> {
 }
 
 export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, children }: VersionInfoProps) => {
-    const features = React.Children.toArray(children).filter(
-        (child: ReactElement) => child.type === VersionItem && child.props.type === 'feature'
-    );
-    const bugs = React.Children.toArray(children).filter(
-        (child: ReactElement) => child.type === VersionItem && child.props.type === 'bug'
-    );
+    const features: ReactElement[] = [];
+    const bugs: ReactElement[] = [];
+
+    React.Children.toArray(children)
+        .filter((child: ReactElement) => child.type === VersionItem)
+        .forEach((child: ReactElement) => {
+            if (child.props.type === 'feature') features.push(child);
+            if (child.props.type === 'bug') bugs.push(child);
+        });
     return (
         <StyledVersionInfo>
             <div>
@@ -52,7 +60,7 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
                     <>
                         <h3>
                             <Badge>
-                                <DescriptionIcon />
+                                <AssignmentLateIcon />
                             </Badge>
                             Bugs
                         </h3>
