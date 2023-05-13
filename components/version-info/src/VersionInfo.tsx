@@ -7,7 +7,7 @@ import VersionItem from './VersionItem';
 
 const StyledVersionInfo = styled.div`
     display: grid;
-    grid-template-columns: 3rem 1fr;
+    grid-template-columns: 3.4rem 1fr;
     grid-gap: 1rem;
     .MuiChip-root {
         margin-top: 0.5rem;
@@ -19,7 +19,7 @@ const StyledVersionInfo = styled.div`
 `;
 export interface VersionInfoProps extends HtmlHTMLAttributes<HTMLDivElement> {
     version: string;
-    releaseDate: string;
+    releaseDate: Date;
 }
 
 export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, children }: VersionInfoProps) => {
@@ -32,6 +32,7 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
             if (child.props.type === 'feature') features.push(child);
             if (child.props.type === 'bug') bugs.push(child);
         });
+
     return (
         <StyledVersionInfo>
             <div>
@@ -39,7 +40,7 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
             </div>
             <div>
                 <a id={version} />
-                <h2>{releaseDate}</h2>
+                <h2>{releaseDate?.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' })}</h2>
                 <Divider />
                 {features.length > 0 && (
                     <>
