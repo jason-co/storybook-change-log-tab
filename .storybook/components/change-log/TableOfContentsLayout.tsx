@@ -1,6 +1,7 @@
+import { Button } from '@jason-co/button';
+import { VersionInfo } from '@jason-co/version-info';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
-import { VersionInfo } from '../../../components/version-info';
 
 const StyledTableOfContentsLayout = styled.div`
     display: grid;
@@ -29,9 +30,11 @@ export const TableOfContentsLayout = ({ children }) => {
                     {versions &&
                         versions.map((version: string, index: number) => (
                             <li key={index}>
-                                <a href={`#${version}`} target='_self'>
-                                    {version}
-                                </a>
+                                <Button>
+                                    <a href={`#${version}`} target='_self'>
+                                        {version}
+                                    </a>
+                                </Button>
                             </li>
                         ))}
                 </ul>

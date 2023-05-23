@@ -1,0 +1,33 @@
+{
+    "name": "@jason-co/version-info",
+    "version": "1.0.0",
+    "author": "Jason Ware",
+    "homepage": "https://jasonco.org/",
+    "license": "MIT",
+    "main": "build/cjs/index.js",
+    "module": "build/esm/index.js",
+    "types": "build/esm/index.d.ts",
+    "sideEffects": "false",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "build": "rm -rf build && rollup -c --bundleConfigAsCjs"
+    },
+    "dependencies": {
+        "@jason-co/badge": "^1.5.1",
+        "@jason-co/divider": "^2.0.0",
+        "@mui/material": "^5.13.0",
+        "styled-components": "^5.3.10"
+    },
+    "devDependencies": {
+        "react": "^17.0.2",
+        "typescript": "^5.0.2"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2"
+    }
+}

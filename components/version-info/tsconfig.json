@@ -4,7 +4,8 @@
         "outDir": "./build",
         "composite": true,
         "declaration": true,
-        "noEmit": false
+        "noEmit": false,
+        "tsBuildInfoFile": ".tsconfig.cache/tsconfig.tsbuildinfo"
     },
     "include": ["index.ts", "./src"]
 }

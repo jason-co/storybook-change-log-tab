@@ -1,6 +1,8 @@
+import { Badge } from '@jason-co/badge';
+import { Chip } from '@jason-co/chip';
+import { Divider } from '@jason-co/divider';
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 import DescriptionIcon from '@mui/icons-material/Description';
-import { Badge, Chip, Divider } from '@mui/material';
 import React, { FC, HtmlHTMLAttributes, ReactElement } from 'react';
 import styled from 'styled-components';
 import VersionItem from './VersionItem';
@@ -45,7 +47,7 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
                 {features.length > 0 && (
                     <>
                         <h3>
-                            <Badge>
+                            <Badge badgeContent={features.length} color='primary'>
                                 <DescriptionIcon />
                             </Badge>
                             Features
@@ -60,7 +62,7 @@ export const VersionInfo: FC<VersionInfoProps> = ({ version, releaseDate, childr
                 {bugs.length > 0 && (
                     <>
                         <h3>
-                            <Badge>
+                            <Badge badgeContent={bugs.length} color='secondary'>
                                 <AssignmentLateIcon />
                             </Badge>
                             Bugs

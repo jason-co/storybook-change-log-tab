@@ -1,7 +1,7 @@
+import { VersionInfo, VersionItem } from '@jason-co/version-info';
 import { useStorybookState } from '@storybook/api';
 import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { VersionInfo, VersionItem } from '../../../components/version-info';
 import CustomTheme from './CustomTheme';
 import TableOfContentsLayout from './TableOfContentsLayout';
 

@@ -1,0 +1,25 @@
+import { Divider } from './index';
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+
+<Meta
+    title='Components/Divider'
+    component={Divider}
+    parameters={{
+        component: Divider
+    }}
+/>
+
+# Divider
+
+<Canvas>
+    <Story
+        name='Default'
+        args={{
+            label: 'Default'
+        }}
+    >
+        {(args) => <Divider {...args}/>}
+    </Story>
+</Canvas>
+
+<ArgsTable story='Default' />

@@ -4,8 +4,15 @@
     "main": "index.js",
     "repository": "https://github.com/jason-co/storybook-change-log-tab.git",
     "license": "MIT",
+    "private": true,
+    "workspaces": [
+        "components/*"
+    ],
     "devDependencies": {
         "@babel/core": "^7.21.3",
+        "@rollup/plugin-commonjs": "^25.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.2",
+        "@rollup/plugin-typescript": "^11.1.1",
         "@storybook/addon-actions": "^6.5.16",
         "@storybook/addon-docs": "^6.5.16",
         "@storybook/addon-essentials": "^6.5.16",
@@ -20,6 +27,10 @@
         "babel-loader": "^8.3.0",
         "eslint": "^8.37.0",
         "eslint-plugin-react": "^7.32.2",
+        "lerna": "^6.6.2",
+        "rollup": "^3.21.7",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-terser": "^7.0.2",
         "webpack": "5"
     },
     "dependencies": {
@@ -45,7 +56,7 @@
     "scripts": {
         "start": "set NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 8080",
         "build": "yarn build:components && yarn build:storybook:babel && yarn build:storybook:tsc",
-        "build:components": "rm -rf ./components/**/build && tsc -b",
+        "build:components": "lerna run build",
         "build:storybook:babel": "rm -rf dist/storybook/esm && babel ./.storybook/components/change-log -d ./dist/storybook/esm --env-name esm --extensions \".tsx\"",
         "build:storybook:tsc": "rm -rf dist/storybook/tsc && tsc --project ./.storybook/components/change-log",
         "build:storybook:static": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build-storybook",
