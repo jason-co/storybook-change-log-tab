@@ -15,7 +15,7 @@ const StyledVersionInfo = styled.div`
         margin-top: 0.5rem;
     }
     .MuiBadge-root {
-        margin-right: 0.25rem;
+        margin-right: 0.75rem;
         margin-bottom: 0.25rem;
     }
 `;
