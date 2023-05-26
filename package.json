@@ -60,6 +60,7 @@
         "build:storybook:babel": "rm -rf dist/storybook/esm && babel ./.storybook/components/change-log -d ./dist/storybook/esm --env-name esm --extensions \".tsx\"",
         "build:storybook:tsc": "rm -rf dist/storybook/tsc && tsc --project ./.storybook/components/change-log",
         "build:storybook:static": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build-storybook",
-        "clean": "yarn cache clean && git clean -Xdf"
+        "clean": "yarn cache clean && git clean -Xdf",
+        "publish:site": "yarn build-storybook"
     }
 }
