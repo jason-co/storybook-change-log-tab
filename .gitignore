@@ -1,5 +1,6 @@
 .tsconfig.cache
 .rollup.cache
+storybook-static
 node_modules
 dist
 build

@@ -61,6 +61,6 @@
         "build:storybook:tsc": "rm -rf dist/storybook/tsc && tsc --project ./.storybook/components/change-log",
         "build:storybook:static": "set NODE_OPTIONS=--openssl-legacy-provider && yarn build-storybook",
         "clean": "yarn cache clean && git clean -Xdf",
-        "publish:site": "yarn build-storybook"
+        "publish:site": "yarn build-storybook -- -o docs"
     }
 }
